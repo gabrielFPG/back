@@ -1,4 +1,4 @@
-import { Materia } from "../../materia/entities/materia.entity";
+import { Vehiculo } from "../../vehiculos/entities/vehiculo.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -10,6 +10,6 @@ export class Categoria {
     @Column()
     detalle: string;
 
-    @OneToMany(() => Materia, (mate) => mate.categoria)
-    materia: Materia
+    @OneToMany(() => Vehiculo, (vehi) => vehi.categoria)
+    vehiculo: Vehiculo
 }

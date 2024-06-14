@@ -8,12 +8,10 @@ import { ConfigModule } from './config/config.module';
 import { CategoriaModule } from './modules/categoria/categoria.module';
 import { PersonaModule } from './modules/persona/persona.module';
 import { RoleModule } from './modules/role/role.module';
-import { MateriaModule } from './modules/materia/materia.module';
-import { EstudianteModule } from './modules/estudiante/estudiante.module';
-import { CursoModule } from './modules/curso/curso.module';
+import { VehiculosModule } from './modules/vehiculos/vehiculos.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule, CategoriaModule, PersonaModule, RoleModule, MateriaModule, EstudianteModule, CursoModule],
+  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule, CategoriaModule, PersonaModule, RoleModule, VehiculosModule],
   controllers: [AppController],
   providers: [AppService],
 })
