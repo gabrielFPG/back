@@ -13,12 +13,11 @@ export class CategoriaService {
   async create(createCategoriaDto: CreateCategoriaDto) {
     const categoria = new Categoria()
     categoria.nombreCategoria = createCategoriaDto.nombreCategoria
-    categoria.detalle = createCategoriaDto.detalle
     return await this.categoriaRepository.save(categoria);
   }
 
   async findAll() {
-    return await this.categoriaRepository.find({ order: { id: 'asc' } });
+    return await this.categoriaRepository.find({order:{id:'asc'}});
   }
 
   async findOne(id: number) {

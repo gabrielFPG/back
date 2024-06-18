@@ -1,0 +1,14 @@
+###listar vehi
+GET http://localhost:3000/vehiculos
+
+###Crear lista vehi
+POST http://localhost:3000/vehiculos
+Content-Type: application/json
+
+{
+    "nombre":"Mazda",
+    "categoriaId": 1
+}
+
+###Busaqueda por nombre
+GET http://localhost:3000/vehiculos/back?page=1&q=mm&sort=asc

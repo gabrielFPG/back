@@ -4,7 +4,6 @@ import { CategoriaController } from './categoria.controller';
 import { categoriaProviders } from './categoria.provider';
 import { DatabaseModule } from 'src/database/database.module';
 
-
 @Module({
   imports: [DatabaseModule],
   controllers: [CategoriaController],

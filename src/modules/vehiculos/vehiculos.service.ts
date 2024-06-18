@@ -9,27 +9,39 @@ import { Repository } from 'typeorm';
 export class VehiculosService {
 
   constructor(@InjectRepository(Vehiculo) private vehiculoRepository: Repository<Vehiculo>){}
+
+  queryBuilder(alias: string) {
+    return this.vehiculoRepository.createQueryBuilder(alias);
+  }
+
   create(createVehiculoDto: CreateVehiculoDto) {
-    return this.vehiculoRepository.save(createVehiculoDto);
+    const vehiculo = this.vehiculoRepository.create(createVehiculoDto);
+    return this.vehiculoRepository.save(vehiculo);
   }
 
   findAll() {
-    return this.vehiculoRepository.find;
+    return this.vehiculoRepository.find();
   }
 
   findOne(id: number) {
     return this.vehiculoRepository.findOne({
-      where:{
-        id:id
+      where: {
+        id: id
       }
     });
   }
 
-  update(id: number, updateVehiculoDto: UpdateVehiculoDto) {
-    return this.vehiculoRepository.update(id, updateVehiculoDto);
+  async update(id: number, updateVehiculoDto: UpdateVehiculoDto) {
+    await this.vehiculoRepository.update(id, updateVehiculoDto);
+    return this.vehiculoRepository.findOne({
+      where: {
+        id: id
+      }
+    });
   }
 
-  remove(id: number) {
-    return this.vehiculoRepository.delete(id);
+  async remove(id: number) {
+    await this.vehiculoRepository.delete(id);
+    return { deleted: true };
   }
 }

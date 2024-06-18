@@ -1,18 +1,17 @@
-import { Categoria } from "../../categoria/entities/categoria.entity";
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Categoria } from '../../categoria/entities/categoria.entity';
 
 @Entity()
 export class Vehiculo {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({type:"varchar", length:250})
     nombreVehiculo: string;
 
-    @Column()
+    @Column({type:"text", nullable:true})
     descripcion: string;
 
-    @ManyToOne(() => Categoria, (cat) => cat.vehiculo)
-    categoria: Categoria[];
-
+    @ManyToOne(() => Categoria, categoria=>categoria.vehiculos)
+    categoria: Categoria;
 }

@@ -1,15 +1,31 @@
-## Login sin conexion a base de datos
+POST http://127.0.0.1:3000/auth/register
+Content-Type: application/json
 
+{
+    "name": "nueva",
+    "mail":"GFP@gmail.com",
+    "password": "123456789",
+    "telefono":"0987654321"
+}
+
+###################
 POST http://127.0.0.1:3000/auth/login
 Content-Type: application/json
 
 {
-    "name": "prueba2",
-    "email":"casa2@gmail.com",
-    "password": "654321"
+    "name": "nue",
+    "email":"GFP@gmail.com",
+    "password": "123456789"
 }
-###################
 
+####
+GET http://127.0.0.1:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkdGUEBnbWFpbC5jb20iLCJpZCI6MywiaWF0IjoxNzE4NTczNjAzLCJleHAiOjE3MTg1NzQyMDh9.Ios0vx5YnbS_l0Mv1g60ZLidEGPVxOYiB_mfRU6UrzE
+
+#####
+GET http://127.0.0.1:3000/categoria
+
+################
 POST http://127.0.0.1:3000/admin/categoria
 Content-Type: application/json
 
@@ -17,10 +33,3 @@ Content-Type: application/json
     "nombreCategoria": "json",
     "detalle": "xdxd"
 }
-####
-GET http://127.0.0.1:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MTU4NzM0ODksImV4cCI6MTcxNTg3NDA5NH0.mqZPC_8bEigkSW8535DlUdRBBdH_Tb9oVg8aoPnzwCU
-
-#####
-GET http://127.0.0.1:3000/categoria
-

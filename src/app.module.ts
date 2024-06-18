@@ -1,6 +1,6 @@
+// src/app.module.ts
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { DatabaseModule } from './database/database.module';
@@ -9,10 +9,22 @@ import { CategoriaModule } from './modules/categoria/categoria.module';
 import { PersonaModule } from './modules/persona/persona.module';
 import { RoleModule } from './modules/role/role.module';
 import { VehiculosModule } from './modules/vehiculos/vehiculos.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
-  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule, CategoriaModule, PersonaModule, RoleModule, VehiculosModule],
+  imports: [
+    ConfigModule,
+    DatabaseModule,
+    AuthModule,
+    UsersModule,
+    CategoriaModule,
+    PersonaModule,
+    RoleModule,
+    VehiculosModule,
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
-export class AppModule { }
+export class AppModule {}
+
